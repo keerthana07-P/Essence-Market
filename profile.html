@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EssenceMarket - My Profile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: { "display": ["Manrope"] },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            min-height: 100dvh;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.4s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 80ms;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: 160ms;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: 240ms;
+            opacity: 0;
+        }
+
+        .menu-card {
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+            border-color: rgba(19, 236, 19, 0.35);
+        }
+
+        .order-row {
+            transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+        }
+
+        .order-row:hover {
+            border-color: rgba(19, 236, 19, 0.3);
+            transform: translateX(2px);
+        }
+
+        /* On desktop hide the mobile bottom nav */
+        @media (min-width: 1024px) {
+            .mobile-nav-bar {
+                display: none !important;
+            }
+        }
+
+        /* Stats counter */
+        .stat-card {
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-display selection:bg-primary/30">
+
+    <!-- ════════ HEADER ════════ -->
+    <header
+        class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <a href="index.html"
+                    class="flex size-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <span class="material-symbols-outlined text-slate-900 dark:text-slate-100">home</span>
+                </a>
+                <h1 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">My Profile</h1>
+            </div>
+            <!-- Desktop nav -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                <a href="explore.html" class="hover:text-primary transition-colors">Explore</a>
+                <a href="wishlist.html" class="hover:text-primary transition-colors">Wishlist</a>
+                <a href="cart.html" class="hover:text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[18px]">shopping_cart</span> Cart
+                </a>
+            </nav>
+            <button
+                class="flex size-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 transition-colors">
+                <span class="material-symbols-outlined text-slate-700 dark:text-slate-300">settings</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ════════ MAIN ════════ -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10 pb-28 lg:pb-12">
+
+        <!-- ── Two-column on desktop ── -->
+        <div class="lg:grid lg:grid-cols-[300px_1fr] xl:grid-cols-[340px_1fr] gap-8 lg:gap-10 items-start">
+
+            <!-- ══ LEFT: Profile Identity ══ -->
+            <div class="space-y-5 lg:sticky lg:top-24">
+
+                <!-- Profile Card -->
+                <div
+                    class="fade-up bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-100 dark:border-slate-800 relative overflow-hidden">
+                    <!-- Decorative bg blob -->
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full -z-10"></div>
+
+                    <div
+                        class="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left lg:flex-col lg:items-center lg:text-center gap-5">
+                        <!-- Avatar -->
+                        <div
+                            class="relative size-24 shrink-0 rounded-full p-1 bg-gradient-to-tr from-primary to-emerald-300">
+                            <img class="w-full h-full object-cover rounded-full border-2 border-white dark:border-slate-900"
+                                alt="Sarah Jenkins"
+                                src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=13ec13&color=fff&size=128" />
+                            <button
+                                class="absolute bottom-0 right-0 size-8 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center border border-slate-100 dark:border-slate-700 text-primary hover:scale-105 transition-transform">
+                                <span class="material-symbols-outlined text-[16px]">edit</span>
+                            </button>
+                        </div>
+
+                        <!-- Info -->
+                        <div class="flex-1">
+                            <h2 class="text-2xl font-black text-slate-900 dark:text-white mb-1">Sarah Jenkins</h2>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">
+                                sarah.jenkins@example.com</p>
+                            <p class="text-xs text-slate-400 mb-4">Member since Jan 2023 · 🌿 Verified Buyer</p>
+                            <button
+                                class="bg-primary text-slate-900 font-bold px-6 py-2.5 rounded-xl shadow-md shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all text-sm">
+                                Edit Profile
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stats row -->
+                    <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-slate-100 dark:border-slate-800">
+                        <div class="stat-card text-center">
+                            <p class="text-xl font-black text-primary">12</p>
+                            <p class="text-[11px] text-slate-500 font-semibold mt-0.5">Orders</p>
+                        </div>
+                        <div class="stat-card text-center border-x border-slate-100 dark:border-slate-800">
+                            <p class="text-xl font-black text-amber-500">48</p>
+                            <p class="text-[11px] text-slate-500 font-semibold mt-0.5">Reviews</p>
+                        </div>
+                        <div class="stat-card text-center">
+                            <p class="text-xl font-black text-red-500">7</p>
+                            <p class="text-[11px] text-slate-500 font-semibold mt-0.5">Wishlist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links (only on desktop left column) -->
+                <div
+                    class="hidden lg:block bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+                    <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-800">
+                        <p class="text-xs font-black uppercase tracking-widest text-slate-400">Navigation</p>
+                    </div>
+                    <nav class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <a href="index.html"
+                            class="flex items-center gap-3 px-5 py-3.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">home</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Home</span>
+                        </a>
+                        <a href="explore.html"
+                            class="flex items-center gap-3 px-5 py-3.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">explore</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Explore Oils</span>
+                        </a>
+                        <a href="wishlist.html"
+                            class="flex items-center gap-3 px-5 py-3.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">favorite</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">My Wishlist</span>
+                        </a>
+                        <a href="cart.html"
+                            class="flex items-center gap-3 px-5 py-3.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">shopping_cart</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">My Cart</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- ══ RIGHT: Content ══ -->
+            <div class="space-y-6 mt-6 lg:mt-0">
+
+                <!-- Quick Action Grid -->
+                <div class="fade-up delay-1">
+                    <h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-3">Quick Actions</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <a href="#"
+                            class="menu-card bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col gap-3 group">
+                            <div
+                                class="size-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
+                                <span class="material-symbols-outlined">local_shipping</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">My Orders</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Track purchases</p>
+                            </div>
+                        </a>
+                        <a href="wishlist.html"
+                            class="menu-card bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col gap-3 group">
+                            <div
+                                class="size-11 rounded-xl bg-red-50 dark:bg-red-500/10 text-red-500 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-all">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Wishlist</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Saved products</p>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="menu-card bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col gap-3 group">
+                            <div
+                                class="size-11 rounded-xl bg-amber-50 dark:bg-amber-500/10 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Addresses</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Delivery details</p>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="menu-card bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col gap-3 group">
+                            <div
+                                class="size-11 rounded-xl bg-purple-50 dark:bg-purple-500/10 text-purple-500 flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-all">
+                                <span class="material-symbols-outlined">payments</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Payments</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Cards &amp; wallets</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="fade-up delay-2">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-sm font-black uppercase tracking-widest text-slate-400">Recent Orders</h3>
+                        <a href="#" class="text-primary text-sm font-bold hover:underline flex items-center gap-1">
+                            View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm divide-y divide-slate-100 dark:divide-slate-800 overflow-hidden">
+                        <!-- Order 1 -->
+                        <div
+                            class="order-row flex items-center justify-between p-4 cursor-pointer border-l-4 border-l-transparent hover:border-l-primary transition-all">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="size-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-500 shrink-0">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm">Order #8492</h4>
+                                    <p class="text-xs text-slate-500 mt-0.5">Oct 24, 2023 · 3 items</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">₹3,198</h4>
+                                <span
+                                    class="text-[10px] uppercase font-bold text-blue-600 bg-blue-50 dark:bg-blue-500/10 px-2 py-1 rounded-full border border-blue-100 dark:border-blue-900/50">Processing</span>
+                            </div>
+                        </div>
+                        <!-- Order 2 -->
+                        <div
+                            class="order-row flex items-center justify-between p-4 cursor-pointer border-l-4 border-l-transparent hover:border-l-primary transition-all">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="size-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-500 shrink-0">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm">Order #7105</h4>
+                                    <p class="text-xs text-slate-500 mt-0.5">Sep 12, 2023 · 2 items</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">₹1,499</h4>
+                                <span
+                                    class="text-[10px] uppercase font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-100 dark:border-emerald-900/50">Delivered</span>
+                            </div>
+                        </div>
+                        <!-- Order 3 -->
+                        <div
+                            class="order-row flex items-center justify-between p-4 cursor-pointer border-l-4 border-l-transparent hover:border-l-primary transition-all">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="size-12 rounded-xl bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-slate-400 shrink-0">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm">Order #6240</h4>
+                                    <p class="text-xs text-slate-500 mt-0.5">Aug 5, 2023 · 1 item</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">₹899</h4>
+                                <span
+                                    class="text-[10px] uppercase font-bold text-slate-500 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-full">Delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings & Logout -->
+                <div class="fade-up delay-3 space-y-3">
+                    <h3 class="text-sm font-black uppercase tracking-widest text-slate-400">Account</h3>
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm divide-y divide-slate-100 dark:divide-slate-800 overflow-hidden">
+                        <a href="#"
+                            class="flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors bg-slate-50 dark:bg-slate-800 p-2 rounded-xl">manage_accounts</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">Account Settings</span>
+                            </div>
+                            <span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors bg-slate-50 dark:bg-slate-800 p-2 rounded-xl">notifications</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">Notifications</span>
+                            </div>
+                            <span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors bg-slate-50 dark:bg-slate-800 p-2 rounded-xl">help</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">Help &amp; Support</span>
+                            </div>
+                            <span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+                        </a>
+                    </div>
+                    <a href="#"
+                        class="flex items-center gap-3 px-5 py-4 bg-red-50 dark:bg-red-500/10 rounded-2xl border border-red-100 dark:border-red-900/30 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors">
+                        <span class="material-symbols-outlined text-red-500">logout</span>
+                        <span class="font-extrabold text-red-600 dark:text-red-400 text-sm">Log out of Account</span>
+                    </a>
+                </div>
+
+            </div><!-- end right column -->
+        </div>
+    </main>
+
+    <!-- ════════ MOBILE BOTTOM NAV ════════ -->
+    <div
+        class="mobile-nav-bar fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-4 pb-6 pt-2 z-50">
+        <div class="flex gap-2 justify-around max-w-md mx-auto">
+            <a class="group flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary active:scale-95 transition-all"
+                href="index.html">
+                <div class="flex h-8 items-center justify-center"><span class="material-symbols-outlined">home</span>
+                </div>
+                <p class="text-[10px] font-medium">Home</p>
+            </a>
+            <a class="group flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary active:scale-95 transition-all"
+                href="explore.html">
+                <div class="flex h-8 items-center justify-center"><span class="material-symbols-outlined">explore</span>
+                </div>
+                <p class="text-[10px] font-medium">Explore</p>
+            </a>
+            <a class="group flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary active:scale-95 transition-all"
+                href="cart.html">
+                <div class="flex h-8 items-center justify-center relative">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span id="cart-badge"
+                        class="absolute -top-1 -right-1 bg-primary text-white text-[8px] font-bold h-4 w-4 rounded-full flex items-center justify-center hidden">0</span>
+                </div>
+                <p class="text-[10px] font-medium">Cart</p>
+            </a>
+            <a class="group flex flex-1 flex-col items-center justify-center gap-1 text-primary active:scale-95 transition-all"
+                href="profile.html">
+                <div class="flex h-8 items-center justify-center">
+                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">person</span>
+                </div>
+                <p class="text-[10px] font-bold">Profile</p>
+            </a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof updateCartBadge === 'function') updateCartBadge();
+        });
+    </script>
+</body>
+
+</html>
